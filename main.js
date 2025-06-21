@@ -5,7 +5,7 @@ window.onload = async () => {
     title: "Masukkan Nama",
     input: "text",
     inputLabel: "Nama Kamu",
-    inputPlaceholder: "Contoh: Zulfikri",
+    inputPlaceholder: "Contoh: Messi",
     confirmButtonText: "Lanjut",
     allowOutsideClick: false,
     background: "#1f2937", // Tailwind gray-800
@@ -71,7 +71,7 @@ window.sendMessage = function () {
   document.getElementById("send-text").innerText = "Mengirim...";
   document.getElementById("loading-icon").classList.remove("hidden");
 
-  fetch("http://localhost:3000/message", {
+  fetch("https://chatsocket-backend-production.up.railway.app/message", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, message }),
@@ -91,7 +91,7 @@ document.getElementById("message").addEventListener("input", () => {
 
   const name = document.getElementById("name").value;
 
-  fetch("http://localhost:3000/typing", {
+  fetch("https://chatsocket-backend-production.up.railway.app/typing", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name }),
